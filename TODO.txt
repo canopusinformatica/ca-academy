@@ -1,0 +1,3 @@
+TODO:
+    - verificar pacotes mysql-client para fazer o connector do python com o mysql, também checar se precisa de libs de development do mysql-client na máquina local
+    - alterar a engine do sqlite para mysql no settings.py do django
