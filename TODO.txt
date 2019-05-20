@@ -1,3 +1,5 @@
 TODO:
     - verificar pacotes mysql-client para fazer o connector do python com o mysql, também checar se precisa de libs de development do mysql-client na máquina local
     - alterar a engine do sqlite para mysql no settings.py do django
+    - criar arquivos json que vão servir de template base e serão carregados como variáveis de ambiente do django
+    - instalar o pacote decouple e criar arquivo.env com as settings de configurações sensíveis e que não devem ser versionadas.
