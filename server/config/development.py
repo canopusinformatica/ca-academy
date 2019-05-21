@@ -1,5 +1,9 @@
-from base import *  # noqa: F403, F401
+from server.config.base import *  # noqa: F403, F401
 
 ALLOWED_HOSTS = [
     '127.0.0.1'
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:4200',
 ]

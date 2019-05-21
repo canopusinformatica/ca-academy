@@ -1,1 +1,1 @@
-from base import *  # noqa: F403 F401
+from server.config.base import *  # noqa: F403 F401
