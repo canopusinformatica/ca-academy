@@ -66,7 +66,7 @@ setup(
         read('requirements.txt')
     ],
     cmdclass={
-        'pre-commit': PrecommitCommand
+        'pre_commit': PrecommitCommand
     },
     long_description=read('README.md')
 )
