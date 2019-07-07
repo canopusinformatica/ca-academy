@@ -1,0 +1,13 @@
+.git/
+.gitignore
+LICENSE
+README.md
+.pre-commit-config.yaml
+build
+dist
+*.egg-info
+*.egg/
+*.pyc
+*.swp
+__pycache___
+
