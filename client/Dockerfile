@@ -1,8 +1,13 @@
 FROM node
 
-WORKDIR /app/client
-COPY package.json /app/client
+WORKDIR /code/client
 
-RUN npm install
+COPY ./app/package.json ./app/yarn.lock /code/client
+
+RUN yarn
+
+COPY ./app /code/client
+
+CMD ["yarn", "start"]
 
 EXPOSE 5000
