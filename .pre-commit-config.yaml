@@ -7,4 +7,4 @@
             '--max-line-length=119'
         ]
         exclude: __pycache__|migrations|venv
-        language_version: python3.7
+        language_version: python3
