@@ -1,6 +1,7 @@
-django
+Django
 djangorestframework
 django-filter
 django-cors-headers
-markdown
+psycopg2-binary
+graphene_django
 Pillow
