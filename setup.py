@@ -36,7 +36,7 @@ class PrecommitCommand(distutils.cmd.Command):
         pass
 
     def run(self):
-        self.install_development_packages('requirements-dev.txt')
+        self.install_development_packages('server/requirements-dev.txt')
         os.system('pre-commit install')
 
     def install_development_packages(self, name):
@@ -63,7 +63,7 @@ setup(
     license='MIT',
     packages=find_packages(),
     install_requires=[
-        read('requirements.txt')
+        read('server/requirements.txt')
     ],
     cmdclass={
         'pre_commit': PrecommitCommand
