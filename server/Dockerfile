@@ -5,12 +5,12 @@ LABEL maintainer.email="vargasnikolass@gmail.com"
 
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /app/server
+WORKDIR /code/server
 
-COPY requirements.txt /app/server
+COPY requirements.txt /code/server
 
 RUN pip install -r requirements.txt
-COPY . /app/server
+COPY . /code/server
 
 EXPOSE 8000
 
