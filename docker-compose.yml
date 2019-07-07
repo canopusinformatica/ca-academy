@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  db.postgresql:
+    image: postgres:latest
+    container_name: db_postgres
+    volumes:
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/db.sql
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - 10000:5432
+    networks:
+      - net
+
+  app.backend:
+    build: ./server
+    container_name: be_django
+    volumes:
+      - ./server:/code/server
+    ports:
+      - 8000:8000
+    networks:
+      - net
+
+  app.frontend:
+    build: ./client
+    container_name: fe_react
+    volumes:
+      - ./client:/code/client
+    ports:
+      -  5000:5000
+    networks:
+      - net
+
+volumes:
+  postgres_data:
+
+networks:
+  net:

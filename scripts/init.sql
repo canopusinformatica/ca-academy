@@ -1,0 +1,3 @@
+CREATE USER canopus WITH PASSWORD 'abacate';
+CREATE DATABASE ca_academy;
+GRANT ALL PRIVILEGES ON DATABASE ca_academy TO canopus;
