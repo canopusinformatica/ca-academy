@@ -2,12 +2,13 @@ FROM node
 
 WORKDIR /code/client
 
-COPY ./app/package.json ./app/yarn.lock /code/client
+COPY package.json /code/client
+COPY yarn.lock /code/client
 
 RUN yarn
 
-COPY ./app /code/client
-
-CMD ["yarn", "start"]
+COPY . /code/client
 
 EXPOSE 5000
+
+CMD ["yarn", "start"]
