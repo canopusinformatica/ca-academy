@@ -15,7 +15,8 @@ if CURRENT_PYTHON_VERSION < REQUIRED_PYTHON_VERSION:
 ==========================
 Unsupported Python version
 ==========================
-This version of Django requires Python {}.{}, but you're trying to install iton Python {}.{}
+Essa versão do Django requer Python >= {}.{}, mas você está tentando instalar usando Python {}.{}
+Por acaso esqueceu de ativar o seu ambiente virtual?
 """.format(*(REQUIRED_PYTHON_VERSION + CURRENT_PYTHON_VERSION)))
     sys.exit(1)
 
