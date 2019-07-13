@@ -5,6 +5,7 @@ import sys
 import os
 import distutils.cmd
 from setuptools import find_packages, setup
+from pathlib import Path
 
 CURRENT_PYTHON_VERSION = sys.version_info[:2]
 REQUIRED_PYTHON_VERSION = (3, 5)
@@ -24,11 +25,13 @@ Por acaso esqueceu de ativar o seu ambiente virtual?
 class PrecommitCommand(distutils.cmd.Command):
     """
     Classe utilitária para instalar a ferramenta de pré commit
-    execute python setup.py pre_commit após rodar python setup.py install
     """
 
     user_options = []
-    description = 'Execute python setup.py pre_commit para instalar'
+    description = 'Use make install'
+    env_path = str(Path('venv/bin').resolve())
+    pip_path = f"{env_path}/pip"
+    pre_commit_path = f"{env_path}/pre-commit"
 
     def initialize_options(self):
         pass
@@ -38,12 +41,12 @@ class PrecommitCommand(distutils.cmd.Command):
 
     def run(self):
         self.install_development_packages('server/requirements-dev.txt')
-        os.system('pre-commit install')
+        os.system(f"{self.pre_commit_path} install")
 
     def install_development_packages(self, name):
         try:
             import subprocess
-            subprocess.call(['pip', 'install', '-r', name])
+            subprocess.call([self.pip_path, 'install', '-r', name])
         except ImportError:
             print("Módulo não encontrado")
 
@@ -67,7 +70,7 @@ setup(
         read('server/requirements.txt')
     ],
     cmdclass={
-        'pre_commit': PrecommitCommand
+        'dev_install': PrecommitCommand
     },
     long_description=read('README.md')
 )
